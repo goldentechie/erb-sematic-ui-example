@@ -1,7 +1,6 @@
 var app = require('app')
 var BrowserWindow = require('browser-window')
 
-require('electron-debug')()
 require('crash-reporter').start()
 
 var mainWindow = null
