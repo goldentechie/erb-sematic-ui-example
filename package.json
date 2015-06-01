@@ -1,6 +1,6 @@
 {
   "name": "electron-react-boilerplate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader",
   "main": "main.js",
   "scripts": {
@@ -26,6 +26,15 @@
   "bugs": {
     "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
   },
+  "keywords": [
+    "electron",
+    "boilerplate",
+    "react",
+    "react-router",
+    "flux",
+    "webpack",
+    "react-hot"
+  ],
   "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
   "devDependencies": {
     "asar": "^0.6.1",
@@ -55,6 +64,7 @@
   },
   "dependencies": {
     "debug": "^2.2.0",
+    "electron-debug": "^0.1.0",
     "flux": "^2.0.3",
     "keymirror": "^0.1.1",
     "object-assign": "^2.0.0",
