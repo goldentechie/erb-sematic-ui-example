@@ -70,7 +70,7 @@ module.exports = function(opts) {
   var output = {
     path: __dirname + '/dist/',
     filename: 'bundle.js',
-    publicPath: publicPath,
+    publicPath: 'http://localhost:2992/',
     contentBase: __dirname + '/public/',
     libraryTarget: 'commonjs2'
   }

@@ -1,6 +1,6 @@
 {
   "name": "electron-react-boilerplate",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "main": "main.js",
   "scripts": {
@@ -45,7 +45,6 @@
     "del": "^1.2.0",
     "electron-packager": "^4.1.0",
     "electron-prebuilt": "^0.26.0",
-    "electron-rebuild": "^0.2.1",
     "extract-text-webpack-plugin": "^0.8.0",
     "file-loader": "^0.8.1",
     "github-latest-release": "^0.1.1",
