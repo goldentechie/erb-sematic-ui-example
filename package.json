@@ -7,7 +7,7 @@
     "test": "NODE_ENV=test mocha --compilers js:babel/register --recursive --require ./test/setup.js $(find test -name '*.spec.js')",
     "test-watch": "npm test -- --watch",
     "test-e2e:crdv": "chromedriver",
-    "test-e2e": "NODE_ENV=test mocha --compilers js:babel/register --require ./test/setup.js ./test/e2e.js",
+    "test-e2e": "NODE_ENV=test mocha --compilers js:babel/register --require ./test/setup.js --require co-mocha ./test/e2e.js",
     "lint": "eslint .",
     "hot-server": "node server.js",
     "build": "NODE_ENV=production webpack --config webpack.config.production.js --progress --profile --colors",
@@ -51,11 +51,12 @@
     "babel-plugin-react-transform": "^1.1.1",
     "chai": "^3.3.0",
     "chromedriver": "^2.19.0",
+    "co-mocha": "^1.1.2",
     "css-loader": "^0.22.0",
     "css-modules-require-hook": "^2.0.2",
     "del": "^2.0.1",
     "electron-packager": "^5.0.2",
-    "electron-prebuilt": "^0.34.0",
+    "electron-prebuilt": "^0.35.2",
     "electron-rebuild": "^1.0.0",
     "eslint": "^1.3.1",
     "eslint-config-airbnb": "0.0.8",
@@ -87,7 +88,7 @@
     "webpack": "^1.12.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1",
-    "webpack-target-electron-renderer": "^0.1.1"
+    "webpack-target-electron-renderer": "^0.2.0"
   },
   "dependencies": {
     "electron-debug": "^0.4.0",
