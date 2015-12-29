@@ -12,15 +12,16 @@ process.on('exit', chromedriver.stop);
 const delay = time => new Promise(resolve => setTimeout(resolve, time));
 
 describe('main window', function spec() {
+  this.timeout(5000);
+
   before(async () => {
-    this.timeout(5000);
     await delay(1000); // wait chromedriver start time
     this.driver = new webdriver.Builder()
       .usingServer('http://localhost:9515')
       .withCapabilities({
         chromeOptions: {
           binary: electronPath,
-          args: ['app=' + path.resolve()]
+          args: [ 'app=' + path.resolve() ]
         }
       })
       .forBrowser('electron')
@@ -28,7 +29,6 @@ describe('main window', function spec() {
   });
 
   after(async () => {
-    this.timeout(10000);
     await this.driver.quit();
   });
 
@@ -96,7 +96,7 @@ describe('main window', function spec() {
     expect(await counter.getText()).to.equal('2');
 
     await this.driver.wait(() =>
-      counter.getText().then(text => text === '3')
+      counter.getText().then(text => text === '3' )
     , 1000, 'count not as expected');
   });
 
