@@ -1,6 +1,8 @@
 /* eslint strict: 0 */
 'use strict';
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -27,11 +29,7 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   mainWindow = new BrowserWindow({ width: 1024, height: 728 });
 
-  if (process.env.HOT) {
-    mainWindow.loadURL(`file://${__dirname}/app/hot-dev-app.html`);
-  } else {
-    mainWindow.loadURL(`file://${__dirname}/app/app.html`);
-  }
+  mainWindow.loadURL(`file://${__dirname}/app/app.html`);
 
   mainWindow.on('closed', () => {
     mainWindow = null;
