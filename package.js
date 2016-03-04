@@ -99,7 +99,6 @@ function pack(plat, arch, cb) {
     platform: plat,
     arch,
     prune: true,
-    'app-version': pkg.version || DEFAULT_OPTS.version,
     out: `release/${plat}-${arch}`
   });
 
