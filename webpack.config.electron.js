@@ -30,7 +30,7 @@ export default {
     })
   ],
 
-  target: 'electron-main',
+  target: 'electron',
 
   node: {
     __dirname: false,
