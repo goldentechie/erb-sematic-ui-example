@@ -4,7 +4,7 @@ import merge from 'webpack-merge';
 import baseConfig from './webpack.config.base';
 
 const config = merge(baseConfig, {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
 
   entry: './app/index',
 
