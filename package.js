@@ -34,7 +34,7 @@ const DEFAULT_OPTS = {
   )
 };
 
-const icon = argv.icon || argv.i || 'build/icon';
+const icon = argv.icon || argv.i || 'app/app';
 
 if (icon) {
   DEFAULT_OPTS.icon = icon;

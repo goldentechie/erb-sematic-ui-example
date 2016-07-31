@@ -1,14 +1,8 @@
-
 import { app, BrowserWindow, Menu, shell } from 'electron';
 
 let menu;
 let template;
 let mainWindow = null;
-
-if (process.env.NODE_ENV === 'production') {
-  const sourceMapSupport = require('source-map-support'); // eslint-disable-line global-require
-  sourceMapSupport.install();
-}
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -46,7 +40,7 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/app/app.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
