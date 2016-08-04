@@ -25,10 +25,10 @@ class Counter extends Component {
         </div>
         <div className={styles.btnGroup}>
           <button className={styles.btn} onClick={increment}>
-            <i className="fa fa-plus" />
+            <i className="fa fa-plus"></i>
           </button>
           <button className={styles.btn} onClick={decrement}>
-            <i className="fa fa-minus" />
+            <i className="fa fa-minus"></i>
           </button>
           <button className={styles.btn} onClick={incrementIfOdd}>odd</button>
           <button className={styles.btn} onClick={() => incrementAsync()}>async</button>
