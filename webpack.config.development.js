@@ -1,9 +1,10 @@
 /* eslint max-len: 0 */
 import webpack from 'webpack';
-import merge from 'webpack-merge';
 import baseConfig from './webpack.config.base';
 
-export default merge(baseConfig, {
+const config = {
+  ...baseConfig,
+
   debug: true,
 
   devtool: 'cheap-module-eval-source-map',
@@ -14,11 +15,15 @@ export default merge(baseConfig, {
   ],
 
   output: {
+    ...baseConfig.output,
     publicPath: 'http://localhost:3000/dist/'
   },
 
   module: {
+    ...baseConfig.module,
     loaders: [
+      ...baseConfig.module.loaders,
+
       {
         test: /\.global\.css$/,
         loaders: [
@@ -38,6 +43,7 @@ export default merge(baseConfig, {
   },
 
   plugins: [
+    ...baseConfig.plugins,
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
@@ -46,4 +52,6 @@ export default merge(baseConfig, {
   ],
 
   target: 'electron-renderer'
-});
+};
+
+export default config;
