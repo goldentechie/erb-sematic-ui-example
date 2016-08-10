@@ -4,14 +4,13 @@
 require('babel-polyfill');
 const os = require('os');
 const webpack = require('webpack');
-const electronCfg = require('./webpack.config.electron');
-const cfg = require('./webpack.config.production');
+const electronCfg = require('./webpack.config.electron.js');
+const cfg = require('./webpack.config.production.js');
 const packager = require('electron-packager');
 const del = require('del');
 const exec = require('child_process').exec;
 const argv = require('minimist')(process.argv.slice(2));
 const pkg = require('./package.json');
-
 const deps = Object.keys(pkg.dependencies);
 const devDeps = Object.keys(pkg.devDependencies);
 
@@ -35,7 +34,7 @@ const DEFAULT_OPTS = {
   )
 };
 
-const icon = argv.icon || argv.i || 'app/app';
+const icon = argv.icon || argv.i || 'build/icon';
 
 if (icon) {
   DEFAULT_OPTS.icon = icon;
