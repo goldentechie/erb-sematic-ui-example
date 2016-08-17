@@ -4,9 +4,17 @@ let menu;
 let template;
 let mainWindow = null;
 
+if (process.env.NODE_ENV === 'production') {
+  const sourceMapSupport = require('source-map-support'); // eslint-disable-line
+  sourceMapSupport.install();
+}
+
 
 if (process.env.NODE_ENV === 'development') {
   require('electron-debug')(); // eslint-disable-line global-require
+
+  const PATH_APP_NODE_MODULES = require('path').join(__dirname, '..', 'static', 'node_modules');
+  require('module').globalPaths.push(PATH_APP_NODE_MODULES);
 }
 
 
@@ -41,7 +49,7 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/app.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
