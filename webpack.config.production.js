@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import merge from 'webpack-merge';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import baseConfig from './webpack.config.base';
 
 const config = merge(baseConfig, {
@@ -10,7 +9,7 @@ const config = merge(baseConfig, {
   entry: './app/index',
 
   output: {
-    publicPath: '../static/'
+    publicPath: '../dist/'
   },
 
   module: {
@@ -44,12 +43,7 @@ const config = merge(baseConfig, {
         warnings: false
       }
     }),
-    new ExtractTextPlugin('style.css', { allChunks: true }),
-    new HtmlWebpackPlugin({
-      filename: 'app.html',
-      template: 'app/app.html',
-      inject: false
-    })
+    new ExtractTextPlugin('style.css', { allChunks: true })
   ],
 
   target: 'electron-renderer'

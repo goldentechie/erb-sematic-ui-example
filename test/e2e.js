@@ -1,6 +1,6 @@
 import { Application } from 'spectron';
 import { expect } from 'chai';
-import electronPath from 'electron-prebuilt';
+import electronPath from 'electron';
 import homeStyles from '../app/components/Home.css';
 import counterStyles from '../app/components/Counter.css';
 
@@ -12,7 +12,7 @@ describe('main window', function spec() {
   before(async () => {
     this.app = new Application({
       path: electronPath,
-      args: ['static'],
+      args: ['.'],
     });
     return this.app.start();
   });

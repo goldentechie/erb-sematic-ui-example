@@ -21,7 +21,7 @@ const shouldBuildAll = argv.all || false;
 
 
 const DEFAULT_OPTS = {
-  dir: './static',
+  dir: './',
   name: appName,
   asar: shouldUseAsar,
   ignore: [
@@ -35,7 +35,7 @@ const DEFAULT_OPTS = {
   )
 };
 
-const icon = argv.icon || argv.i || 'build/icon';
+const icon = argv.icon || argv.i || 'app/app';
 
 if (icon) {
   DEFAULT_OPTS.icon = icon;
