@@ -32,7 +32,7 @@ $ cd your-project-name && npm install
 
 ## Run
 
-Run these two commands __simultaneously__ in different console tabs.
+Run this two commands __simultaneously__ in different console tabs.
 
 ```bash
 $ npm run hot-server
