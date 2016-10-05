@@ -41,7 +41,7 @@ const shouldBuildAll = argv.all || false;
 
 
 const DEFAULT_OPTS = {
-  dir: './',
+  dir: './static',
   name: appName,
   asar: shouldUseAsar,
   ignore: [
@@ -53,7 +53,7 @@ const DEFAULT_OPTS = {
   .concat(depsExternal)
 };
 
-const icon = argv.icon || argv.i || 'app/app';
+const icon = argv.icon || argv.i || 'build/icon';
 if (icon) DEFAULT_OPTS.icon = icon;
 
 const version = argv.version || argv.v;
