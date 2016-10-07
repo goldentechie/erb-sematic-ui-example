@@ -3,26 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Hello Electron React!</title>
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css" />
     <script>
-      (function () {
-        const font = (process.env.HOT ? '../' : './') +
-          'node_modules/font-awesome/css/font-awesome.min.css';
+      if (!process.env.HOT) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = font;
+        link.href = '../dist/style.css';
         document.write(link.outerHTML);
-      }());
-    </script>
-
-    <script>
-      (function() {
-        if (!process.env.HOT) {
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = './style.css';
-          document.write(link.outerHTML);
-        }
-      }());
+      }
     </script>
   </head>
   <body>
@@ -30,9 +18,8 @@
     <script>
       {
         const script = document.createElement('script');
-        script.src = (process.env.HOT)
-          ? `http://localhost:${process.env.PORT || 3000}/static/bundle.js`
-          : './bundle.js';
+        const port = process.env.PORT || 3000;
+        script.src = (process.env.HOT) ? `http://localhost:${port}/dist/bundle.js` : '../dist/bundle.js';
         document.write(script.outerHTML);
       }
     </script>
