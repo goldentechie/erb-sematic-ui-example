@@ -22,6 +22,7 @@
   "plugins": [
     "import",
     "react",
+    "flowtype",
     "flowtype-errors"
   ],
   "settings": {
