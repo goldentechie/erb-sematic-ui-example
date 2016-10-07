@@ -26,7 +26,7 @@ const enhancer = compose(
     noop => noop
 );
 
-export default function configureStore(initialState: Object) {
+export default function configureStore(initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (window.devToolsExtension) {
