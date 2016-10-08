@@ -114,8 +114,6 @@ css-modules loader. e.g. `app.global.css`
 
 ## Package
 
-To package apps for the local platform:
-
 ```bash
 $ npm run package
 ```
@@ -134,7 +132,15 @@ $ npm run package -- --[option]
 
 #### Options
 
-See [electron-builder CLI Usage](https://github.com/electron-userland/electron-builder#cli-usage)
+- --name, -n: Application name (default: ElectronReact)
+- --version, -v: Electron version (default: latest version)
+- --asar, -a: [asar](https://github.com/atom/asar) support (default: false)
+- --icon, -i: Application icon
+- --all: pack for all platforms
+
+Use `electron-packager` to pack your app with `--all` options for darwin (osx), linux and win32 (windows) platform. After build, you will find them in `release` folder. Otherwise, you will only find one for your os.
+
+`test`, `tools`, `release` folder and devDependencies in `package.json` will be ignored by default.
 
 #### Default Ignore modules
 
@@ -143,13 +149,11 @@ We add some module's `peerDependencies` to ignore option as default for applicat
 - `babel-core` is required by `babel-loader` and its size is ~19 MB
 - `node-libs-browser` is required by `webpack` and its size is ~3MB.
 
-This boilerplate uses a [two package.json structure](https://github.com/electron-userland/electron-builder#two-packagejson-structure).
-
-> **Note:** If you want to use any above modules in runtime, for example: `require('babel/register')`, you should move them from `devDependencies` in the root `package.json` to `dependencies` in `app/package.json`.
+> **Note:** If you want to use any above modules in runtime, for example: `require('babel/register')`, you should move them from `devDependencies` to `dependencies`.
 
 #### Building windows apps from non-windows platforms
 
-Please checkout [Multi Platform Build](https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build)
+Please checkout [Building windows apps from non-windows platforms](https://github.com/maxogden/electron-packager#building-windows-apps-from-non-windows-platforms).
 
 ## Dispatching redux actions from main process
 
@@ -169,8 +173,8 @@ Then, use git to merge some latest commits:
 git pull upstream master
 ```
 
-## Type Annotations
-This project comes with Flow support out of the box! You can annotate your code with types, [get Flow errors as ESLint errors](https://github.com/amilajack/eslint-plugin-flowtype-errors), and get runtime errors of incorrect types with [tcomb. types](https://github.com/gcanti/babel-plugin-tcomb-boilerplate). Gradually add type annotations to function arguments and return values but if you don't want to add type checking, just don't add types. Type checks are turned off during production.
+## Static Type Checking
+This project comes with Flow support out of the box! You can annotate your code with types, [get Flow errors as ESLint errors](https://github.com/amilajack/eslint-plugin-flowtype-errors), and get [type errors during runtime](https://github.com/gcanti/babel-plugin-tcomb-boilerplate) during development. Types are completely optional.
 
 ## Native-like UI
 
