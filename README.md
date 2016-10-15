@@ -13,9 +13,13 @@
 
 ## Screenshot
 
-![](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
+![Electron Boilerplate Demo](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
 
 ## Install
+
+* **Note: requires a node version >= 4 and an npm version >= 3.**
+* **If you have installation or compilation issues with this project, please see [our debugging guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400)**
+
 
 First, clone the repo via git:
 
@@ -45,8 +49,22 @@ or run two servers with one command
 $ npm run dev
 ```
 
-*Note: requires a node version >= 4 and an npm version >= 3.*
+## Editor Configuration
+**Atom**
+```bash
+apm install editorconfig es6-javascript javascript-snippets linter linter-eslint language-babel
+```
 
+**Sublime**
+* https://github.com/sindresorhus/editorconfig-sublime#readme
+* https://github.com/SublimeLinter/SublimeLinter3
+* https://github.com/roadhump/SublimeLinter-eslint
+* https://github.com/babel/babel-sublime
+
+**Others**
+* [Editorconfig](http://editorconfig.org/#download)
+* [ESLint](http://eslint.org/docs/user-guide/integrations#editors)
+* Babel Syntax Plugin
 
 ## DevTools
 
