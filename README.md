@@ -13,9 +13,13 @@
 
 ## Screenshot
 
-![](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
+![Electron Boilerplate Demo](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
 
 ## Install
+
+* **Note: requires a node version >= 4 and an npm version >= 3.**
+* **If you have installation or compilation issues with this project, please see [our debugging guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400)**
+
 
 First, clone the repo via git:
 
@@ -45,8 +49,22 @@ or run two servers with one command
 $ npm run dev
 ```
 
-*Note: requires a node version >= 4 and an npm version >= 3.*
+## Editor Configuration
+**Atom**
+```bash
+apm install editorconfig es6-javascript autocomplete-flow javascript-snippets linter linter-eslint language-babel
+```
 
+**Sublime**
+* https://github.com/sindresorhus/editorconfig-sublime#readme
+* https://github.com/SublimeLinter/SublimeLinter3
+* https://github.com/roadhump/SublimeLinter-eslint
+* https://github.com/babel/babel-sublime
+
+**Others**
+* [Editorconfig](http://editorconfig.org/#download)
+* [ESLint](http://eslint.org/docs/user-guide/integrations#editors)
+* Babel Syntax Plugin
 
 ## DevTools
 
@@ -114,12 +132,17 @@ css-modules loader. e.g. `app.global.css`
 
 ## Package
 
+To package apps for the local platform:
+
 ```bash
 $ npm run package
 ```
 
 To package apps for all platforms:
 
+First, refer to [Multi Platform Build](https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build) for dependencies.
+
+Then,
 ```bash
 $ npm run package-all
 ```
@@ -132,28 +155,17 @@ $ npm run package -- --[option]
 
 #### Options
 
-- --name, -n: Application name (default: ElectronReact)
-- --version, -v: Electron version (default: latest version)
-- --asar, -a: [asar](https://github.com/atom/asar) support (default: false)
-- --icon, -i: Application icon
-- --all: pack for all platforms
+See [electron-builder CLI Usage](https://github.com/electron-userland/electron-builder#cli-usage)
 
-Use `electron-packager` to pack your app with `--all` options for darwin (osx), linux and win32 (windows) platform. After build, you will find them in `release` folder. Otherwise, you will only find one for your os.
+#### Module Structure
 
-`test`, `tools`, `release` folder and devDependencies in `package.json` will be ignored by default.
+This boilerplate uses a [two package.json structure](https://github.com/electron-userland/electron-builder#two-packagejson-structure).
 
-#### Default Ignore modules
+Some best practices around what modules to include, and how:
 
-We add some module's `peerDependencies` to ignore option as default for application size reduction.
-
-- `babel-core` is required by `babel-loader` and its size is ~19 MB
-- `node-libs-browser` is required by `webpack` and its size is ~3MB.
-
-> **Note:** If you want to use any above modules in runtime, for example: `require('babel/register')`, you should move them from `devDependencies` to `dependencies`.
-
-#### Building windows apps from non-windows platforms
-
-Please checkout [Building windows apps from non-windows platforms](https://github.com/maxogden/electron-packager#building-windows-apps-from-non-windows-platforms).
+1. If the module is native to a platform or otherwise should be included with the published package (i.e. bootstrap, openbci), it should be listed under `dependencies` in `./app/package.json`.
+2. If a module is `import`ed by another module, include it in `dependencies` in `./package.json`.   See [this ESLint rule](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md)
+3. Otherwise, modules used for building, testing and debugging should be included in `devDependencies` in `./package.json`.
 
 ## Dispatching redux actions from main process
 
