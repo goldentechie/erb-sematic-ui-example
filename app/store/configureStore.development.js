@@ -19,21 +19,19 @@ const logger = createLogger({
 
 const router = routerMiddleware(hashHistory);
 
-// If Redux DevTools Extension is installed use it, otherwise use Redux compose
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-    // Options: http://zalmoxisus.github.io/redux-devtools-extension/API/Arguments.html
-    actionCreators,
-  }) :
-  compose;
-/* eslint-enable no-underscore-dangle */
-const enhancer = composeEnhancers(
-  applyMiddleware(thunk, router, logger)
+const enhancer = compose(
+  applyMiddleware(thunk, router, logger),
+  window.devToolsExtension ?
+    window.devToolsExtension({ actionCreators }) :
+    noop => noop
 );
 
 export default function configureStore(initialState: Object) {
   const store = createStore(rootReducer, initialState, enhancer);
+
+  if (window.devToolsExtension) {
+    window.devToolsExtension.updateStore(store);
+  }
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
