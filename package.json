@@ -41,14 +41,6 @@
         }
       ]
     },
-    "files": [
-      "dist/",
-      "node_modules/",
-      "app.html",
-      "main.js",
-      "main.js.map",
-      "package.json"
-    ],
     "win": {
       "target": "nsis"
     },
