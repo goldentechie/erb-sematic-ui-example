@@ -24,7 +24,6 @@
     "flowtype-errors/show-errors": 2
   },
   "plugins": [
-    "flowtype",
     "flowtype-errors",
     "import",
     "promise",
