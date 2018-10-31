@@ -59,8 +59,7 @@ const configureStore = (initialState?: counterStateType) => {
   if (module.hot) {
     module.hot.accept(
       '../reducers',
-      // eslint-disable-next-line global-require
-      () => store.replaceReducer(require('../reducers').default)
+      () => store.replaceReducer(require('../reducers')) // eslint-disable-line global-require
     );
   }
 
