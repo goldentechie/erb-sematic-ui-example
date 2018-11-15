@@ -2,5 +2,10 @@
   "extends": [
     "config:base"
   ],
-  "rangeStrategy": "bump"
+  "rangeStrategy": "bump",
+  "baseBranches": ["next"],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  }
 }
