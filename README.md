@@ -13,3 +13,7 @@ git clone https://github.com/amilajack/erb-semantic-ui-example.git
 cd erb-semantic-ui-example && yarn
 yarn dev
 ```
+
+## Notable Changes
+
+To see the notable changes between the boilerplate and this example, [see this commit](https://github.com/amilajack/erb-semantic-ui-example/commit/f1da148f576bd4db2b9380258bd944fcf34a2e6e).
